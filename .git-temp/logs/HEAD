@@ -1,0 +1,5 @@
+0000000000000000000000000000000000000000 0a60854929bc6d803ad0dc15b9f5ce93be450591 magnoweege <magnoo@gmail.com> 1632275979 -0300	commit (initial): Projeto criado
+0a60854929bc6d803ad0dc15b9f5ce93be450591 2f6986c790a312f52a3a34745fadbf2240324d0a magnoweege <magnoo@gmail.com> 1632336927 -0300	commit: REST testado
+2f6986c790a312f52a3a34745fadbf2240324d0a 3fc0e80fe710216b29463c196d5c18079f2a5f54 magnoweege <magnoo@gmail.com> 1632344841 -0300	commit: Criado as classes, atributos, gas, hashs, incluido hibernate, h2, no pom.xml e criado arquivo persistence.xml
+3fc0e80fe710216b29463c196d5c18079f2a5f54 0fe547a138815adbee89680aaa5941158592c393 magnoweege <magnoo@gmail.com> 1632345974 -0300	commit: Testando a primeira classe Cliente e realizando requição com Postman (GET)
+0fe547a138815adbee89680aaa5941158592c393 18cf8d8df70d3c8165062c079e4a90ffd860124e magnoweege <magnoo@gmail.com> 1632346812 -0300	commit: Incluido referencias para geração de persistencia no banco in memory H2
