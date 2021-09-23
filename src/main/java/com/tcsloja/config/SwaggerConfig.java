@@ -30,9 +30,6 @@ public class SwaggerConfig {
     }
 
 
-    /*
-             @return API
-     */
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("TCS Loja")
