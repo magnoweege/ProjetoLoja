@@ -21,7 +21,7 @@ public class CORSConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry  registry) {
         registry.addResourceHandler("**/**")
-                .addResourceLocations("/META-INF/resources/");
+                .addResourceLocations("classpath:/META-INF/resources/");
 
 
         registry.

@@ -2,12 +2,10 @@ package com.tcsloja;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 import com.tcsloja.domain.Cliente;
 import com.tcsloja.domain.Produto;
 import com.tcsloja.repositories.ClienteRepository;
