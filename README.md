@@ -16,7 +16,8 @@
   8- (Falta) Criar testes unitários<br>
   9- (Falta) Configurar Log4J<br>
   10- (Falta) Criar série de testes para postman_collection.json<br>
-  11- (Falta) Criar um arquivo swagger(Open API) para documentar a API<br>
+  11- (OK) Criar um arquivo swagger(Open API) para documentar a API<br>
+      http://localhost:8080/tcs/swagger-ui.html<br>
   
   <h2> ###### 23/09/2021 Incluido: #######<h2>
   - Alterado context /tcs<br>
