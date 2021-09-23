@@ -19,6 +19,6 @@
   11- (Falta) Criar um arquivo swagger(Open API) para documentar a API<br>
   
   <h2> ###### 23/09/2021 Incluido: #######<h2>
-  * Alterado context /tcs
-  * Incluido arquivos swagger
+  - Alterado context /tcs<br>
+  - Incluido arquivos swagger<br>
   
