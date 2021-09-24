@@ -13,6 +13,8 @@ import javax.persistence.OneToMany;
 
 import org.apache.log4j.Logger;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 //Serializable permite que os objetos da classe Cliente sejam convertidos para uma sequencia de bytes. (possibilitando os objetos serem gravados em arquivos ou traficar pela rede, por ex.)
 @Entity
 public class Cliente implements Serializable {
@@ -33,6 +35,7 @@ public class Cliente implements Serializable {
 	private String uf;
 	private Integer telefone;
 
+	@JsonBackReference
 	@OneToMany(mappedBy = "cliente")
 	private List <Pedido> pedidos = new ArrayList<>();
 	
