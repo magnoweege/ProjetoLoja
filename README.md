@@ -4,7 +4,7 @@
   * Acesso via Postman localhost:8080/tcs/clientes/1   (trocando o {id})
   * Acesso via Postman localhost:8080/tcs/produtos/1   (trocando o {id})<br>
   2- Criado o banco em  H2 em memória.
-  * Acesso pelo http://localhost:8080/h2-console/   
+  * Acesso pelo http://localhost:8080/tcs/h2-console/   
   * Usuario: sa Senha ""
   * jdbc:h2:mem:loja<br>
   3- Criação de 3 objetos automaticos para Cliente e Produto, ao executar o aplicativo.<br>
@@ -21,5 +21,7 @@
   
   <h2> ###### 23/09/2021 Incluido: #######<h2>
   - Alterado context /tcs<br>
-  - Incluido arquivos swagger<br>
+  - Incluido arquivos swagger Swagger acessivel.<br>
+  - Incluido relação OneToMany: 1Cliente -> *Pedidos<br>
+  - Incluido relações de todas classes.<br>
   
