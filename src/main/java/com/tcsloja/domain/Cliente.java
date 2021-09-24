@@ -1,12 +1,15 @@
 package com.tcsloja.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 //Serializable permite que os objetos da classe Cliente sejam convertidos para uma sequencia de bytes. (possibilitando os objetos serem gravados em arquivos ou traficar pela rede, por ex.)
 @Entity
@@ -26,6 +29,9 @@ public class Cliente implements Serializable {
 	private String uf;
 	private Integer telefone;
 
+	@OneToMany(mappedBy = "cliente")
+	private List <Pedido> pedidos = new ArrayList<>();
+	
 	public Cliente() {
 	}
 
@@ -112,7 +118,15 @@ public class Cliente implements Serializable {
 	}
 
 	public void setTelefone(Integer telefone) {
-		this.telefone = telefone;
+		this.telefone = telefone;	
+	}
+	
+	public List <Pedido> getPedidos() {
+		return pedidos;
+	}
+
+	public void setPedidos(List <Pedido> pedidos) {
+		this.pedidos = pedidos;
 	}
 
 	// Para realizar comparações entre 2 objetos pelo seu conteúdo e não por
@@ -133,5 +147,7 @@ public class Cliente implements Serializable {
 		Cliente other = (Cliente) obj;
 		return Objects.equals(id, other.id);
 	}
+
+	
 
 }

@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Pedido implements Serializable {
@@ -17,18 +19,23 @@ public class Pedido implements Serializable {
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Integer numeroDoPedido;
+	
 	private Integer codigoDoCliente;
 	private Date dataDoPedido;
 	private BigDecimal valorTotal;
 	private String itensDoPedido;
 	private BigDecimal valorDoFrete;
 
+	@ManyToOne
+	@JoinColumn(name="cliente_id")
+	private Cliente cliente;
+	
 	public Pedido() {
 
 	}
 
-	public Pedido(Integer codigoDoCliente, Date dataDoPedido, Integer numeroDoPedido, BigDecimal valorTotal,
-			String itensDoPedido, BigDecimal valorDoFrete) {
+	public Pedido(Integer numeroDoPedido, Integer codigoDoCliente, Date dataDoPedido, BigDecimal valorTotal,
+			String itensDoPedido, BigDecimal valorDoFrete, Cliente cliente) {
 		super();
 		this.codigoDoCliente = codigoDoCliente;
 		this.dataDoPedido = dataDoPedido;
@@ -36,8 +43,18 @@ public class Pedido implements Serializable {
 		this.valorTotal = valorTotal;
 		this.itensDoPedido = itensDoPedido;
 		this.valorDoFrete = valorDoFrete;
+		this.cliente = cliente;
 	}
 
+	
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+	
 	public Integer getCodigoDoCliente() {
 		return codigoDoCliente;
 	}
