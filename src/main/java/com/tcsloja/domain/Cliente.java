@@ -11,10 +11,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.apache.log4j.Logger;
+
 //Serializable permite que os objetos da classe Cliente sejam convertidos para uma sequencia de bytes. (possibilitando os objetos serem gravados em arquivos ou traficar pela rede, por ex.)
 @Entity
 public class Cliente implements Serializable {
 	private static final long serialVersionUID = 1L;
+	
+	static Logger logger = Logger.getLogger(Cliente.class);  
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
