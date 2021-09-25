@@ -50,12 +50,13 @@ public class TcsLojaApplication implements CommandLineRunner{
 		
 		clienteRepository.saveAll(Arrays.asList(cli1, cli2, cli3));
 		produtoRepository.saveAll(Arrays.asList(prod1, prod2, prod3));
-		pedidoRepository.saveAll(Arrays.asList(ped1, ped2, ped3));
+		
 		
 		// relações de tabela gerando problema ciclico entre cliente-pedido descoberto via GET(resolver amanhã)
 		cli1.getPedidos().addAll(Arrays.asList(ped1, ped2));
 		cli2.getPedidos().addAll(Arrays.asList(ped3));
 		
+		pedidoRepository.saveAll(Arrays.asList(ped1, ped2, ped3));
 		
 	}
 	

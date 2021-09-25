@@ -28,7 +28,6 @@ public class Pedido implements Serializable {
 	private String itensDoPedido;
 	private BigDecimal valorDoFrete;
 	
-	@JsonManagedReference
 	@ManyToOne
 	@JoinColumn(name="cliente_id")
 	private Cliente cliente;
