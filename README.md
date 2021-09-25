@@ -1,8 +1,9 @@
 # Aplicativo REST API LOJA (Cliente, Produto, Pedido, Itens do Pedido)
  <b>Utilizado o STS (Spring Tool Suite)</b><br>
-  1- Realizado a criação de 2 endpoints (Cliente e Produto)
+  1- Realizado a criação de 3 endpoints (Cliente, Produto e Pedidos)
   * Acesso via Postman localhost:8080/tcs/clientes/1   (trocando o {id})
   * Acesso via Postman localhost:8080/tcs/produtos/1   (trocando o {id})<br>
+   * Acesso via Postman localhost:8080/tcs/pedidos/1   (trocando o {id})<br>
   2- Criado o banco em  H2 em memória.
   * Acesso pelo http://localhost:8080/tcs/h2-console/   
   * Usuario: sa Senha ""
@@ -14,7 +15,7 @@
   6- Nota fiscal com dados do cliente (Nome, CPF e CEP), número do pedido, itens do pedido (nome do produto, valor unitário, valor total, quantidade de cada item) e o frete (UF, Nome do estado, valor do frete).<br>
   7- Cálculo de frete (com tabela dada)<br>
   8- (Falta) Criar testes unitários<br>
-  9- (Falta) Configurar Log4J<br>
+  9- (OK) Configurar Log4J<br>
   10- (Falta) Criar série de testes para postman_collection.json<br>
   11- (OK) Criar um arquivo swagger(Open API) para documentar a API<br>
       http://localhost:8080/tcs/swagger-ui.html<br>
@@ -24,4 +25,7 @@
   - Incluido arquivos swagger Swagger acessivel.<br>
   - Incluido relação OneToMany: 1Cliente -> *Pedidos<br>
   - Incluido relações de todas classes.<br>
-  
+   <h2> ###### 25/09/2021 Incluido: #######<h2>
+  - Incluido CRUD para PEDIDO, CLIENTE,PRODUTO<br>
+  - Incluido tratamento exceção para delete cliente que contem pedidos.(relação)<br>
+  - Tratamento de exceção personalizado.<br>
