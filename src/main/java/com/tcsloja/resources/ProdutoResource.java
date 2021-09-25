@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.tcsloja.domain.Cliente;
 import com.tcsloja.domain.Produto;
 import com.tcsloja.services.ProdutoService;
 
@@ -25,7 +26,7 @@ public class ProdutoResource implements Serializable {
 	private ProdutoService service;
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<?> find(@PathVariable Integer id) {
+	public ResponseEntity<Produto> find(@PathVariable Integer id) {
 		Produto obj = service.find(id);
 		return ResponseEntity.ok().body(obj);
 	}
@@ -36,6 +37,13 @@ public class ProdutoResource implements Serializable {
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
 				.path("/{id}").buildAndExpand(obj.getId()).toUri();
 		return ResponseEntity.created(uri).build();
+	}
+	
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<Void> update(@RequestBody Produto obj, @PathVariable Integer id){
+		obj.setId(id);
+		obj = service.update(obj);
+		return ResponseEntity.noContent().build();
 	}
 	
 }

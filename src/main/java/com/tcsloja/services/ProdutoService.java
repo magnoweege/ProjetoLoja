@@ -28,5 +28,10 @@ public class ProdutoService {
 		obj.setId(null);
 		return repo.save(obj);
 	}
+	
+	public Produto update(Produto obj) {
+		find (obj.getId());
+		return repo.save(obj);
+	}
 
 }
