@@ -5,10 +5,12 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.tcsloja.domain.Cliente;
 import com.tcsloja.repositories.ClienteRepository;
+import com.tcsloja.services.exceptions.DataIntegrityException;
 import com.tcsloja.services.exceptions.ObjectNotFoundException;
 
 @Service
@@ -31,6 +33,17 @@ public class ClienteService {
 	public Cliente update(Cliente obj) {
 		find (obj.getId());
 		return repo.save(obj);
+	}
+	public void delete (Integer id) {
+		find(id);
+		try {
+			repo.deleteById(id);
+		} catch (DataIntegrityViolationException e) {
+			
+			throw new DataIntegrityException("Não é possível excluir um cliente que possui pedidos!");
+			
+		}
+
 	}
 	
 }

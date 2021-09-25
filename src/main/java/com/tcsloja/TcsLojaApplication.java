@@ -48,14 +48,13 @@ public class TcsLojaApplication implements CommandLineRunner{
 		Pedido ped3 = new Pedido(null, 3, new Date(11102000), new BigDecimal(80), "celular tenis", new BigDecimal(10), cli2);
 
 		
-		clienteRepository.saveAll(Arrays.asList(cli1, cli2, cli3));
+		
 		produtoRepository.saveAll(Arrays.asList(prod1, prod2, prod3));
 		
-		
-		// relações de tabela gerando problema ciclico entre cliente-pedido descoberto via GET(resolver amanhã)
 		cli1.getPedidos().addAll(Arrays.asList(ped1, ped2));
 		cli2.getPedidos().addAll(Arrays.asList(ped3));
 		
+		clienteRepository.saveAll(Arrays.asList(cli1, cli2, cli3));
 		pedidoRepository.saveAll(Arrays.asList(ped1, ped2, ped3));
 		
 	}
