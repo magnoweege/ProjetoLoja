@@ -2,6 +2,7 @@ package com.tcsloja.resources;
 
 import java.io.Serializable;
 import java.net.URI;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -49,6 +50,12 @@ public class ClienteResource implements Serializable {
 		service.delete(id);
 		return ResponseEntity.noContent().build();
 
+	}
+	
+	@RequestMapping(method = RequestMethod.GET)
+	public ResponseEntity<List<Cliente>> findAll() {
+		List<Cliente> list = service.findAll();
+		return ResponseEntity.ok().body(list);
 	}
 
 }

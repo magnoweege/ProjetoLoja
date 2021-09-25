@@ -1,5 +1,6 @@
 package com.tcsloja.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -24,26 +25,31 @@ public class ClienteService {
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
 				"Objeto não encontrado! Id: " + id + ", Tipo: " + Cliente.class.getName()));
 	}
+
 	@Transactional
-	public Cliente insert (Cliente obj) {
+	public Cliente insert(Cliente obj) {
 		obj.setId(null);
 		return repo.save(obj);
 	}
-	
+
 	public Cliente update(Cliente obj) {
-		find (obj.getId());
+		find(obj.getId());
 		return repo.save(obj);
 	}
-	public void delete (Integer id) {
+
+	public void delete(Integer id) {
 		find(id);
 		try {
 			repo.deleteById(id);
 		} catch (DataIntegrityViolationException e) {
-			
-			throw new DataIntegrityException("Não é possível excluir um cliente que possui pedidos!");
-			
-		}
 
+			throw new DataIntegrityException("Não é possível excluir um cliente que possui pedidos!");
+		}
 	}
 	
+	public List<Cliente> findAll(){
+		return repo.findAll();
+		
+	}
+
 }
