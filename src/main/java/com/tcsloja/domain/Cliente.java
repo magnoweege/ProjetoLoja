@@ -15,7 +15,6 @@ import org.apache.log4j.Logger;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-//Serializable permite que os objetos da classe Cliente sejam convertidos para uma sequencia de bytes. (possibilitando os objetos serem gravados em arquivos ou traficar pela rede, por ex.)
 @Entity
 public class Cliente implements Serializable {
 	private static final long serialVersionUID = 1L;
