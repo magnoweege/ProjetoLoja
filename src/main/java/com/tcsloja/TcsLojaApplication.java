@@ -38,6 +38,10 @@ public class TcsLojaApplication implements CommandLineRunner{
 		Cliente cli1 = new Cliente (null, "Marcos", 123456, "Rua", 123456, "bairro", "Taubate", "SP", 123456 );
 		Cliente cli2 = new Cliente (null, "Rafael", 123456, "Avenida", 123456, "bairro", "Caçapava", "SP", 123456 );
 		Cliente cli3 = new Cliente (null, "Carlos", 123456, "Estrada", 123456, "bairro", "Pinda", "SP", 123456 );
+		Cliente cli4 = new Cliente (null, "Marcelo", 123456, "Estrada", 123456, "bairro", "Pinda", "SP", 123456 );
+		Cliente cli5 = new Cliente (null, "Luiz", 123456, "Estrada", 123456, "bairro", "Vale", "SP", 123456 );
+		Cliente cli6 = new Cliente (null, "Regis", 123456, "Estrada", 123456, "bairro", "Poa", "SP", 123456 );
+		Cliente cli7 = new Cliente (null, "Maira", 123456, "Estrada", 123456, "bairro", "Pinda", "SP", 123456 );
 		
 		Produto prod1 = new Produto (null, "Iphone11", "Celular", new BigDecimal(22));
 		Produto prod2 = new Produto (null, "Iphone11", "Celular", new BigDecimal(10));
@@ -54,7 +58,7 @@ public class TcsLojaApplication implements CommandLineRunner{
 		cli1.getPedidos().addAll(Arrays.asList(ped1, ped2));
 		cli2.getPedidos().addAll(Arrays.asList(ped3));
 		
-		clienteRepository.saveAll(Arrays.asList(cli1, cli2, cli3));
+		clienteRepository.saveAll(Arrays.asList(cli1, cli2, cli3, cli4, cli5, cli6, cli7));
 		pedidoRepository.saveAll(Arrays.asList(ped1, ped2, ped3));
 		
 	}
