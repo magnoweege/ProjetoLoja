@@ -58,7 +58,6 @@ public class ClienteResource implements Serializable {
 	public ResponseEntity<Void> delete(@PathVariable Integer id) {
 		service.delete(id);
 		return ResponseEntity.noContent().build();
-
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)
