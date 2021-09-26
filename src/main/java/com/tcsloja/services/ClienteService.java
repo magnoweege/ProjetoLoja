@@ -13,6 +13,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.tcsloja.domain.Cliente;
+import com.tcsloja.dto.ClienteDTO;
 import com.tcsloja.repositories.ClienteRepository;
 import com.tcsloja.services.exceptions.DataIntegrityException;
 import com.tcsloja.services.exceptions.ObjectNotFoundException;
@@ -56,8 +57,13 @@ public class ClienteService {
 	
 	public Page<Cliente> findPage(Integer page, Integer linesPerPage, String orderBy, String direction){
 		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
-		return repo.findAll(pageRequest);
-		
+		return repo.findAll(pageRequest);	
+	}
+	
+	public Cliente fromDTO(ClienteDTO objDto) {
+		return new Cliente(objDto.getId(), objDto.getNomeCompleto(), objDto.getCpf(), 
+				objDto.getEndereco(), objDto.getCep(),objDto.getBairro(), objDto.getCidade(), 
+				objDto.getUf(), objDto.getTelefone());
 	}
 
 }

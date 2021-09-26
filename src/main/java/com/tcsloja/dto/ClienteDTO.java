@@ -1,13 +1,16 @@
 package com.tcsloja.dto;
 
 import java.io.Serializable;
-
+import javax.validation.constraints. *;
 import com.tcsloja.domain.Cliente;
 
 public class ClienteDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private Integer id;
+	
+	@NotEmpty(message="Por favor preencha o nome completo")
+	@Size(min = 5, max = 80, message = "Nome completo deve conter entre 5 e 80 caracteres")
 	private String nomeCompleto;
 	private Integer cpf;
 	private String endereco;
