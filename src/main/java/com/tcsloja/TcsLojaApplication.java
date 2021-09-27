@@ -1,9 +1,11 @@
 package com.tcsloja;
 
 import java.math.BigDecimal;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -15,6 +17,7 @@ import com.tcsloja.domain.Produto;
 import com.tcsloja.repositories.ClienteRepository;
 import com.tcsloja.repositories.PedidoRepository;
 import com.tcsloja.repositories.ProdutoRepository;
+import com.tcsloja.utility.CalculoDoFrete;
 
 @SpringBootApplication
 public class TcsLojaApplication implements CommandLineRunner{
@@ -60,6 +63,12 @@ public class TcsLojaApplication implements CommandLineRunner{
 		
 		clienteRepository.saveAll(Arrays.asList(cli1, cli2, cli3, cli4, cli5, cli6, cli7));
 		pedidoRepository.saveAll(Arrays.asList(ped1, ped2, ped3));
+		
+		//Entre com o CEP para verificar se o mesmo está entre o range e retornar um bigdecimal com o valor do frete
+		NumberFormat n = NumberFormat.getCurrencyInstance(Locale.getDefault());
+		BigDecimal valorFrete = CalculoDoFrete.numEntre(57100000);
+		String s = n.format(valorFrete);
+		 System.out.println("R"+s);
 		
 	}
 	
