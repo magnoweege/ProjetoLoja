@@ -65,10 +65,11 @@ public class TcsLojaApplication implements CommandLineRunner{
 		pedidoRepository.saveAll(Arrays.asList(ped1, ped2, ped3));
 		
 		//Entre com o CEP para verificar se o mesmo está entre o range e retornar um bigdecimal com o valor do frete
+		//Poderia ser feito criando uma Entity e criando uma tabela na memória.
 		NumberFormat n = NumberFormat.getCurrencyInstance(Locale.getDefault());
 		BigDecimal valorFrete = CalculoDoFrete.numEntre(57100000);
 		String s = n.format(valorFrete);
-		 System.out.println("R"+s);
+		 System.out.println("Valor do frete dado um CEP no formato ########: R"+s);
 		
 	}
 	

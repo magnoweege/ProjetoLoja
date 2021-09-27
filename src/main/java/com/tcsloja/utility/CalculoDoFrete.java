@@ -7,7 +7,7 @@ public class CalculoDoFrete {
 	
 	   private Integer min=0;
 	   private Integer max=0;
-	   private BigDecimal valor = new BigDecimal(0).setScale(2,BigDecimal.ROUND_FLOOR);
+	   private BigDecimal valor = new BigDecimal(0);
 	   private static ArrayList<CalculoDoFrete> auxList;
 	   
 	    public CalculoDoFrete(int min, int max, BigDecimal valor) {
