@@ -1,31 +1,95 @@
-# Aplicativo REST API LOJA (Cliente, Produto, Pedido, Itens do Pedido)
- <b>Utilizado o STS (Spring Tool Suite)</b><br>
-  1- Realizado a criação de 3 endpoints (Cliente, Produto e Pedidos)
-  * Acesso via Postman localhost:8080/tcs/clientes/1   (trocando o {id})
-  * Acesso via Postman localhost:8080/tcs/produtos/1   (trocando o {id})<br>
-   * Acesso via Postman localhost:8080/tcs/pedidos/1   (trocando o {id})<br>
-  2- Criado o banco em  H2 em memória.
-  * Acesso pelo http://localhost:8080/tcs/h2-console/   
-  * Usuario: sa Senha ""
-  * jdbc:h2:mem:loja<br>
-  3- Criação de 3 objetos automaticos para Cliente e Produto, ao executar o aplicativo.<br>
-  4- Estrutura criada com camadas:<br>
-  Application -> Controllers REST -> Service - > Repository / Domains<br>
-  5- (Falta) Criaçao e listagem de pedidos e itens do pedido<br>
-  6- Nota fiscal com dados do cliente (Nome, CPF e CEP), número do pedido, itens do pedido (nome do produto, valor unitário, valor total, quantidade de cada item) e o frete (UF, Nome do estado, valor do frete).<br>
-  7- Cálculo de frete (com tabela dada)<br>
-  8- (Falta) Criar testes unitários<br>
-  9- (OK) Configurar Log4J<br>
-  10- (Falta) Criar série de testes para postman_collection.json<br>
-  11- (OK) Criar um arquivo swagger(Open API) para documentar a API<br>
-      http://localhost:8080/tcs/swagger-ui.html<br>
-  
-  <h2> ###### 23/09/2021 Incluido: #######<h2>
-  - Alterado context /tcs<br>
-  - Incluido arquivos swagger Swagger acessivel.<br>
-  - Incluido relação OneToMany: 1Cliente -> *Pedidos<br>
-  - Incluido relações de todas classes.<br>
-   <h2> ###### 25/09/2021 Incluido: #######<h2>
-  - Incluido CRUD para PEDIDO, CLIENTE,PRODUTO<br>
-  - Incluido tratamento exceção para delete cliente que contem pedidos.(relação)<br>
-  - Tratamento de exceção personalizado.<br>
+# # Aplicativo REST API LOJA (Cliente, Produto, Pedido, Itens do Pedido)
+## Requerimentos
+
+Para construir e executar a aplicação você precisa:
+- [JDK 11](https://www.oracle.com/java/technologies/downloads/#java11-windows)
+- [Maven 3](https://maven.apache.org)
+
+## Executando a aplicação localmente:
+
+Há vários jeitos de execuatr uma aplicação Spring Boot localmente na sua máquina. Um dos modos é executar o método `main` na classe `TcsLojaApplication` na sua IDE.
+
+Caso tenha instalado o [Spring Boot Maven plugin](https://docs.spring.io/spring-boot/docs/current/reference/html/build-tool-plugins-maven-plugin.html) é só digitar:
+
+```shell
+mvn spring-boot:run
+```
+
+Após executar o comando acima, acesse o navegador nos endereços:
+
+### Clientes
+
+Listar todos clientes pré carregados:
+```
+http://localhost:8080/api/v1/clientes/
+```
+Mostrar um cliente em específico:
+```
+http://localhost:8080/api/v1/clientes/1
+```
+Mostrar todos clientes com paginação:
+```
+http://localhost:8080/api/v1/clientes/page
+```
+
+### Produtos
+
+Listar todos produtos pré carregados:
+```
+http://localhost:8080/api/v1/produtos/
+```
+Mostrar um produto em específico:
+```
+http://localhost:8080/api/v1/produtos/1
+```
+Mostrar todos produtos com paginação:
+```
+http://localhost:8080/api/v1/produtos/page
+```
+
+### Pedidos
+
+Listar todos pedidos pré carregados:
+```
+http://localhost:8080/api/v1/pedidos/
+```
+Mostrar um pedido em específico:
+```
+http://localhost:8080/api/v1/pedidos/1
+```
+Mostrar todos pedidos com paginação:
+```
+http://localhost:8080/api/v1/pedidos/page
+```
+
+### Swagger UI
+Para acessar o CRUD completo das classes utilizando as especificações REST, utilize o swagger conforme abaixo:
+
+```shell
+http://localhost:8080/api/v1/swagger-ui.html
+```
+
+### H2 banco de dados em memória
+Para acessar o banco de dados acesse a página:
+
+```shell
+http://localhost:8080/api/v1/h2-console/
+```
+
+* jdbc:h2:mem:loja<br>
+* username=sa<br>
+* password=<br>
+
+### Bibliotecas utilizadas:
+ - spring-boot-starter-web
+- spring-boot-starter-data-jpa
+- spring-data-jpa
+- hibernate-entitymanager
+- com.h2database
+- hibernate-core
+- spring-boot-starter-test
+- validation-api
+- log4j
+- springfox-swagger2
+- springfox-swagger-ui
+- spring-boot-maven-plugin
