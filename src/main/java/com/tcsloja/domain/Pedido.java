@@ -3,7 +3,9 @@ package com.tcsloja.domain;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Pedido implements Serializable {
@@ -29,6 +32,9 @@ public class Pedido implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="cliente_id")
 	private Cliente cliente;
+	
+	@OneToMany(mappedBy = "id.pedido")
+	private Set<ItensDoPedido> itens = new HashSet<>();
 	
 	public Pedido() {
 
@@ -102,6 +108,14 @@ public class Pedido implements Serializable {
 	public void setValorDoFrete(BigDecimal valorDoFrete) {
 		this.valorDoFrete = valorDoFrete;
 	}
+	
+	public Set<ItensDoPedido> getItens() {
+		return itens;
+	}
+
+	public void setItens(Set<ItensDoPedido> itens) {
+		this.itens = itens;
+	}
 
 	@Override
 	public int hashCode() {
@@ -119,6 +133,8 @@ public class Pedido implements Serializable {
 		Pedido other = (Pedido) obj;
 		return Objects.equals(numeroDoPedido, other.numeroDoPedido);
 	}
+
+	
 
 	
 

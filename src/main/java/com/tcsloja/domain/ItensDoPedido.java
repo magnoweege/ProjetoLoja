@@ -4,32 +4,47 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
 
 @Entity
 public class ItensDoPedido implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	private Integer id;
+	@EmbeddedId
+	private ItensDoPedidoPK id =  new ItensDoPedidoPK();
+	
 	private Integer codigoDoProduto;
 	private BigDecimal valorTotal;
 	private Integer quantidade;
 
 	public ItensDoPedido() {
-
 	}
 
-	public ItensDoPedido(Integer id, Integer codigoDoProduto, BigDecimal valorTotal, Integer quantidade) {
+	public ItensDoPedido(Pedido pedido, Produto produto,  Integer codigoDoProduto, BigDecimal valorTotal, Integer quantidade) {
 		super();
-		this.id = id;
+		id.setPedido(pedido);
+		id.setProduto(produto);
 		this.codigoDoProduto = codigoDoProduto;
 		this.valorTotal = valorTotal;
 		this.quantidade = quantidade;
+	}
+
+	public Pedido getPedido() {
+		return id.getPedido();
+	}
+	
+	public Produto getProduto() {
+		return id.getProduto();
+	}
+	
+	public ItensDoPedidoPK getId() {
+		return id;
+	}
+
+	public void setId(ItensDoPedidoPK id) {
+		this.id = id;
 	}
 
 	public Integer getCodigoDoProduto() {
@@ -72,5 +87,7 @@ public class ItensDoPedido implements Serializable {
 		ItensDoPedido other = (ItensDoPedido) obj;
 		return Objects.equals(id, other.id);
 	}
+	
+	
 	
 }

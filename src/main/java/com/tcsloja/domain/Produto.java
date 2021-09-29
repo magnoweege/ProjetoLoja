@@ -2,12 +2,17 @@ package com.tcsloja.domain;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Produto implements Serializable {
@@ -20,6 +25,9 @@ public class Produto implements Serializable {
 	private String categoria;
 	private BigDecimal valorUnitario;
 
+	@OneToMany(mappedBy = "id.produto")
+	private Set<ItensDoPedido> itens = new HashSet<>();
+	
 	public Produto() {
 
 	}
@@ -30,6 +38,14 @@ public class Produto implements Serializable {
 		this.descricao = descricao;
 		this.categoria = categoria;
 		this.valorUnitario = valorUnitario;
+	}
+	
+	public List<Pedido> pedidos(){
+		List<Pedido> lista = new ArrayList<>();
+		for (ItensDoPedido x : itens) {
+			lista.add(x.getPedido());
+		}
+		return lista;
 	}
 
 	public Integer getId() {
@@ -63,7 +79,14 @@ public class Produto implements Serializable {
 	public void setValorUnitario(BigDecimal valorUnitario) {
 		this.valorUnitario = valorUnitario;
 	}
+	
+	public Set<ItensDoPedido> getItens() {
+		return itens;
+	}
 
+	public void setItens(Set<ItensDoPedido> itens) {
+		this.itens = itens;
+	}
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -80,5 +103,7 @@ public class Produto implements Serializable {
 		Produto other = (Produto) obj;
 		return Objects.equals(id, other.id);
 	}
+
+	
 
 }
