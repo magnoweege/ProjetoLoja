@@ -12,6 +12,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.tcsloja.domain.Cliente;
+import com.tcsloja.domain.ItensDoPedido;
 import com.tcsloja.domain.Pedido;
 import com.tcsloja.domain.Produto;
 import com.tcsloja.repositories.ClienteRepository;
@@ -71,6 +72,10 @@ public class TcsLojaApplication implements CommandLineRunner{
 		String s = n.format(valorFrete);
 		 System.out.println("Valor do frete dado um CEP no formato ########: R"+s);
 		
+		 ItensDoPedido ip1 = new ItensDoPedido(ped1, prod1, 0001, new BigDecimal(100), 1);
+		 ItensDoPedido ip2 = new ItensDoPedido(ped1, prod3, 0003, new BigDecimal(80), 2);
+		 ItensDoPedido ip3 = new ItensDoPedido(ped2, prod2, 0003, new BigDecimal(50), 1);
+		 
 	}
 	
 	
