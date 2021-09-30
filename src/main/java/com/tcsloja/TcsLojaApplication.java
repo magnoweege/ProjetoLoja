@@ -2,11 +2,9 @@ package com.tcsloja;
 
 import java.math.BigDecimal;
 import java.text.NumberFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Locale;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -59,8 +57,6 @@ public class TcsLojaApplication implements CommandLineRunner{
 		Pedido ped1 = new Pedido(null, 1, new Date(10102000), new BigDecimal(200), "celular calça", new BigDecimal(20), cli1);
 		Pedido ped2 = new Pedido(null, 2, new Date(10112000), new BigDecimal(100), "celular tenis", new BigDecimal(30), cli1);
 		Pedido ped3 = new Pedido(null, 3, new Date(11102000), new BigDecimal(80), "celular tenis", new BigDecimal(10), cli2);
-
-		
 		
 		produtoRepository.saveAll(Arrays.asList(prod1, prod2, prod3));
 		
@@ -89,8 +85,6 @@ public class TcsLojaApplication implements CommandLineRunner{
 		 prod3.getItens().addAll(Arrays.asList(ip2));
 		 
 		 itensDoPedidoRepository.saveAll(Arrays.asList(ip1,ip2,ip3));
-		 
-		 
 		 
 	}
 	

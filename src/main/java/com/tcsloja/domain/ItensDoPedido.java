@@ -3,12 +3,9 @@ package com.tcsloja.domain;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
-
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 
 @Entity
 public class ItensDoPedido implements Serializable {
@@ -37,7 +34,7 @@ public class ItensDoPedido implements Serializable {
 	public Pedido getPedido() {
 		return id.getPedido();
 	}
-	@JsonIgnore
+
 	public Produto getProduto() {
 		return id.getProduto();
 	}
