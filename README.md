@@ -62,6 +62,17 @@ Mostrar todos pedidos com paginação:
 http://localhost:8080/api/v1/pedidos/page
 ```
 
+### Itens de pedidos
+
+Listar todos os itens de pedidos:
+```
+http://localhost:8080/api/v1/itensdopedidos
+```
+Mostrar todos pedidos com paginação:
+```
+http://localhost:8080/api/v1/itensdopedidos/page
+```
+
 ### Swagger UI
 Para acessar o CRUD completo das classes utilizando as especificações REST, utilize o swagger conforme abaixo:
 
