@@ -20,56 +20,56 @@ Após executar o comando acima, acesse o navegador nos endereços:
 ### Clientes
 
 Listar todos clientes pré carregados:
-```
+```shell
 http://localhost:8080/api/v1/clientes/
 ```
 Mostrar um cliente em específico:
-```
+```shell
 http://localhost:8080/api/v1/clientes/1
 ```
 Mostrar todos clientes com paginação:
-```
+```shell
 http://localhost:8080/api/v1/clientes/page
 ```
 
 ### Produtos
 
 Listar todos produtos pré carregados:
-```
+```shell
 http://localhost:8080/api/v1/produtos/
 ```
 Mostrar um produto em específico:
-```
+```shell
 http://localhost:8080/api/v1/produtos/1
 ```
 Mostrar todos produtos com paginação:
-```
+```shell
 http://localhost:8080/api/v1/produtos/page
 ```
 
 ### Pedidos
 
 Listar todos pedidos pré carregados:
-```
+```shell
 http://localhost:8080/api/v1/pedidos/
 ```
 Mostrar um pedido em específico:
-```
+```shell
 http://localhost:8080/api/v1/pedidos/1
 ```
 Mostrar todos pedidos com paginação:
-```
+```shell
 http://localhost:8080/api/v1/pedidos/page
 ```
 
 ### Itens de pedidos
 
 Listar todos os itens de pedidos:
-```
+```shell
 http://localhost:8080/api/v1/itensdopedidos
 ```
 Mostrar todos pedidos com paginação:
-```
+```shell
 http://localhost:8080/api/v1/itensdopedidos/page
 ```
 
