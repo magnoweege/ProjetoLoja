@@ -5,6 +5,10 @@ import java.text.NumberFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Locale;
+
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.apache.log4j.xml.DOMConfigurator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -22,6 +26,8 @@ import com.tcsloja.utility.CalculoDoFrete;
 @SpringBootApplication
 public class TcsLojaApplication implements CommandLineRunner{
 	
+    static Logger logger = Logger.getLogger(TcsLojaApplication.class);  
+	
 	@Autowired
 	private ClienteRepository clienteRepository;
 	
@@ -36,11 +42,16 @@ public class TcsLojaApplication implements CommandLineRunner{
 	
 	
 	public static void main(String[] args) {
+		 
 		SpringApplication.run(TcsLojaApplication.class, args);
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
+		
+		logger.setLevel(Level.ALL);
+		DOMConfigurator.configure("src/main/resources/log4j.xml");  
+        logger.debug("Iniciando a aplicação"); 
 		
 		Cliente cli1 = new Cliente (null, "Marcos", 123456, "Rua", 123456, "bairro", "Taubate", "SP", 123456 );
 		Cliente cli2 = new Cliente (null, "Rafael", 123456, "Avenida", 123456, "bairro", "Caçapava", "SP", 123456 );

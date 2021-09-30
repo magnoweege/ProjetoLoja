@@ -9,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-
 import org.apache.log4j.Logger;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -55,42 +54,54 @@ public class Cliente implements Serializable {
 	}
 
 	public Integer getId() {
+		
+		logger.info("Solicitado ID " + id); 
+
 		return id;
 	}
 
 	public void setId(Integer id) {
 		this.id = id;
+		logger.info("Setando ID " + id); 
 	}
-
+	
 	public String getNomeCompleto() {
+		logger.info("Solicitado Nome do cliente " + nomeCompleto); 
 		return nomeCompleto;
 	}
 
 	public void setNomeCompleto(String nomeCompleto) {
+		logger.info("Setando Nome do cliente " + nomeCompleto); 
 		this.nomeCompleto = nomeCompleto;
 	}
 
 	public Integer getCpf() {
+		logger.info("Solicitando CPF " + cpf); 
 		return cpf;
 	}
 
 	public void setCpf(Integer cpf) {
+		logger.info("Setando CPF " + cpf); 
 		this.cpf = cpf;
 	}
 
 	public String getEndereco() {
+		logger.info("Solicitando endereço " + endereco); 
 		return endereco;
 	}
 
 	public void setEndereco(String endereco) {
+		logger.info("Setando endereço " + endereco); 
 		this.endereco = endereco;
 	}
 
 	public Integer getCep() {
+		logger.info("Solicitando CEP " + cep); 
 		return cep;
 	}
 
 	public void setCep(Integer cep) {
+		logger.info("Setando CEP " + cep); 
 		this.cep = cep;
 	}
 
