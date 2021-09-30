@@ -91,6 +91,10 @@ http://localhost:8080/api/v1/h2-console/
 * username=sa<br>
 * password=<br>
 
+### LOG4J Logs criados em arquivo no diretório do Tomcat conforme abaixo:
+```shell
+${catalina.home}/logs/loja.log
+```
 ### Bibliotecas utilizadas:
  - spring-boot-starter-web
 - spring-boot-starter-data-jpa
