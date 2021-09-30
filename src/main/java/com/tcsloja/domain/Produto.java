@@ -14,6 +14,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Produto implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -25,6 +27,7 @@ public class Produto implements Serializable {
 	private String categoria;
 	private BigDecimal valorUnitario;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "id.produto")
 	private Set<ItensDoPedido> itens = new HashSet<>();
 	
@@ -39,8 +42,8 @@ public class Produto implements Serializable {
 		this.categoria = categoria;
 		this.valorUnitario = valorUnitario;
 	}
-	
-	public List<Pedido> pedidos(){
+	@JsonIgnore
+	public List<Pedido> getPedidos(){
 		List<Pedido> lista = new ArrayList<>();
 		for (ItensDoPedido x : itens) {
 			lista.add(x.getPedido());

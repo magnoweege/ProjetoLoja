@@ -7,11 +7,14 @@ import java.util.Objects;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 public class ItensDoPedido implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@JsonIgnore
 	@EmbeddedId
 	private ItensDoPedidoPK id =  new ItensDoPedidoPK();
 	
@@ -30,11 +33,11 @@ public class ItensDoPedido implements Serializable {
 		this.valorTotal = valorTotal;
 		this.quantidade = quantidade;
 	}
-
+	@JsonIgnore
 	public Pedido getPedido() {
 		return id.getPedido();
 	}
-	
+	@JsonIgnore
 	public Produto getProduto() {
 		return id.getProduto();
 	}
