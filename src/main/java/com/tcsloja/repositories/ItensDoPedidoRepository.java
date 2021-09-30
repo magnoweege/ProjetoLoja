@@ -8,4 +8,5 @@ import com.tcsloja.domain.ItensDoPedido;
 @Repository
 public interface ItensDoPedidoRepository extends JpaRepository<ItensDoPedido, Integer> {
 
+
 }

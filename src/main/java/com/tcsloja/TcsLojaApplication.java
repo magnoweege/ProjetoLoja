@@ -16,6 +16,7 @@ import com.tcsloja.domain.ItensDoPedido;
 import com.tcsloja.domain.Pedido;
 import com.tcsloja.domain.Produto;
 import com.tcsloja.repositories.ClienteRepository;
+import com.tcsloja.repositories.ItensDoPedidoRepository;
 import com.tcsloja.repositories.PedidoRepository;
 import com.tcsloja.repositories.ProdutoRepository;
 import com.tcsloja.utility.CalculoDoFrete;
@@ -31,6 +32,10 @@ public class TcsLojaApplication implements CommandLineRunner{
 	
 	@Autowired
 	private PedidoRepository pedidoRepository;
+	
+	@Autowired
+	private ItensDoPedidoRepository itensDoPedidoRepository;
+	
 	
 	public static void main(String[] args) {
 		SpringApplication.run(TcsLojaApplication.class, args);
@@ -75,6 +80,17 @@ public class TcsLojaApplication implements CommandLineRunner{
 		 ItensDoPedido ip1 = new ItensDoPedido(ped1, prod1, 0001, new BigDecimal(100), 1);
 		 ItensDoPedido ip2 = new ItensDoPedido(ped1, prod3, 0003, new BigDecimal(80), 2);
 		 ItensDoPedido ip3 = new ItensDoPedido(ped2, prod2, 0003, new BigDecimal(50), 1);
+		 
+		 ped1.getItens().addAll(Arrays.asList(ip1,ip2));
+		 ped2.getItens().addAll(Arrays.asList(ip3));
+		 
+		 prod1.getItens().addAll(Arrays.asList(ip1));
+		 prod2.getItens().addAll(Arrays.asList(ip3));
+		 prod3.getItens().addAll(Arrays.asList(ip2));
+		 
+		 itensDoPedidoRepository.saveAll(Arrays.asList(ip1,ip2,ip3));
+		 
+		 
 		 
 	}
 	
