@@ -95,6 +95,11 @@ http://localhost:8080/api/v1/h2-console/
 ```shell
 ${catalina.home}/logs/loja.log
 ```
+### JUnit Criado testes utilizando reflecção para 2 classes
+```shell
+ClienteTest e ProdutoTest
+```
+
 ### Bibliotecas utilizadas:
  - spring-boot-starter-web
 - spring-boot-starter-data-jpa
@@ -105,6 +110,7 @@ ${catalina.home}/logs/loja.log
 - spring-boot-starter-test
 - validation-api
 - log4j
+- org.junit.jupiter
 - springfox-swagger2
 - springfox-swagger-ui
 - spring-boot-maven-plugin
